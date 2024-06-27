@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Predict Telco Churn</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
+<body>
+    <div>
+        <h1>Predict Telco Churn</h1>
+
+        <form method="POST">
+
+            <label for="contract_type">Contract type:</label><br>
+            <select name="contract_type" id="contract_type">
+                <option value="Month-to-Month" selected>Month-to-Month</option>
+                <option value="Two Year">Two Year</option>
+                <option value="Two Year">One Year</option>
+            </select>
+            
+            <br><br>
+
+            <label for="internet_type">Internet type:</label><br>
+            <select name="internet_type" id="internet_type">
+                <option value=""></option>
+                <option value="Fiber Optic" selected>Fiber Optic</option>
+                <option value="DSL">DSL</option>
+                <option value="Cable">Cable</option>
+            </select>
+            
+            <br><br>
+
+            <label for="tenure_months">Tenure months:</label><br>
+            <input type="text" id="tenure_months" name="tenure_months" value="1" />
+            
+            <br><br>
+
+            <label for="total_monthly_fee">Total monthly fee:</label><br>
+            <input type="text" id="total_monthly_fee" name="total_monthly_fee" value="65.0" />
+            
+            <br><br>
+
+            <label for="total_charges_quarter">Total Charges Quarter:</label><br>
+            <input type="text" id="total_charges_quarter" name="total_charges_quarter" value="20.0" />
+
+            <br><br>
+
+            <label for="payment_method">Payment Method:</label><br>
+            <select name="payment_method" id="payment_method">
+                <option value="Bank Withdrawal" selected>Bank Withdrawal</option>
+                <option value="Credit Card">Credit Card</option>
+                <option value="Mailed Check">Mailed Check</option>
+            </select>
+            
+            <br><br>
+
+            <label for="referrals_category">Number of referrals:</label><br>
+            <select name="referrals_category" id="referrals_category">
+                <option value="0-1" selected>0 - 1</option>
+                <option value="2-3">2 - 3</option>
+                <option value="4-5">4 - 5</option>
+                <option value="6+">More than 5</option>
+            </select>
+            
+            <br><br>
+
+            <label for="married">Married status:</label><br>
+            <select name="married" id="married">
+                <option value="No" selected>No</option>
+                <option value="Yes">Yes</option>
+            </select>
+            
+            <br><br>
+
+            <label for="has_dependents">Have dependents ?</label><br>
+            <select name="has_dependents" id="has_dependents">
+                <option value="No" selected>No</option>
+                <option value="Yes">Yes</option>
+            </select>
+            
+            <br><br>
+
+            <label for="senior_citizen">Senior Citizen Status:</label><br>
+            <select name="senior_citizen" id="senior_citizen">
+                <option value="No" selected>No</option>
+                <option value="Yes">Yes</option>
+            </select>
+            
+            <br><br>
+
+            <label for="city">City:</label><br>
+            <input type="text" id="city" name="city" value="Los Angeles" />
+
+            <br><br>
+            
+            <input type="submit" value="Predict">
+        </form>
+
+        {% if prediction is defined %}
+            <h2>Model Prediction: {{ prediction }}</h2>
+        {% endif %}
+
+    </div>
+</body>
+</html>
